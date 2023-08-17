@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Mandelbrot Set</title>
+
+		<style>
+			body {
+				background: #AAA;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="600" height="600" style="background-color: black;"></canvas>
+
+		<button id="button" onclick="scale = 1; translatedX = 0; translatedY = 0; mouseX = 0; mouseY = 0; mandelbrotDraw(num.value);">Plot</button>
+
+		<input type="number" id="num" value="500" min="1" max="10000"> 1-10000 Iterations <br>
+
+		<button onclick="help();"> Help </button>
+
+		<script>
+			function help() {
+				alert("Click to zoom in, more iterations means more detail, but also more time to load the image.");
+			}
+		</script>
+
+
+		<a href="../Math Website.html">Back To My Site</a>
+
+		<script src="Mandelbrot.js"></script>
+	</body>
+</html>
