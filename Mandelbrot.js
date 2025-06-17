@@ -17,9 +17,19 @@ let scale = 1;
 
 let imageData = graphics.createImageData(width, height);
 
+const getMousePos = (evt) => {
+	const rect = canvas.getBoundingClientRect();
+
+	return {
+		x: (evt.clientX - rect.left) / (rect.right - rect.left) * canvas.width,
+		y: (evt.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height
+	};
+}
+
 canvas.addEventListener("click", (mouse) => {
-	mouseX = (mouse.offsetX-width/2)/(width/4);
-	mouseY = (mouse.offsetY-height/2)/(height/4);
+	let m = getMousePos(mouse);
+	mouseX = (m.x-width/2)/(width/4);
+	mouseY = (m.y-height/2)/(height/4);
 
 	translatedX += mouseX/scale;
 	translatedY += mouseY/scale;
